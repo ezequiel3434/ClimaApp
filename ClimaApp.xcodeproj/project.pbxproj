@@ -58,13 +58,37 @@
 			children = (
 				37A891FB252F5E3B00C50BC6 /* AppDelegate.swift */,
 				37A891FD252F5E3B00C50BC6 /* SceneDelegate.swift */,
-				37A891FF252F5E3B00C50BC6 /* ViewController.swift */,
-				37A89201252F5E3B00C50BC6 /* Main.storyboard */,
-				37A89204252F5E3D00C50BC6 /* Assets.xcassets */,
-				37A89206252F5E3D00C50BC6 /* LaunchScreen.storyboard */,
+				37A89211252F93DF00C50BC6 /* Controller */,
+				37A89210252F93D500C50BC6 /* View */,
+				37A8920F252F93C600C50BC6 /* Model */,
 				37A89209252F5E3D00C50BC6 /* Info.plist */,
 			);
 			path = ClimaApp;
+			sourceTree = "<group>";
+		};
+		37A8920F252F93C600C50BC6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		37A89210252F93D500C50BC6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				37A89206252F5E3D00C50BC6 /* LaunchScreen.storyboard */,
+				37A89204252F5E3D00C50BC6 /* Assets.xcassets */,
+				37A89201252F5E3B00C50BC6 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		37A89211252F93DF00C50BC6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				37A891FF252F5E3B00C50BC6 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
