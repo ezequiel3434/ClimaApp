@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DatailViewController.swift
 //  ClimaApp
 //
 //  Created by Ezequiel Parada Beltran on 08/10/2020.
@@ -7,15 +7,15 @@
 //
 
 import UIKit
-import CoreLocation
 
-class ViewController: UIViewController {
+class DatailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
+    
 
-
+    
 }
-
