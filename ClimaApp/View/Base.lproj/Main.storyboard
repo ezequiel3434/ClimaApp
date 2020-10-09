@@ -14,11 +14,24 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KEc-AQ-Efb">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="KEc-AQ-Efb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="KfV-GF-le1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KEc-AQ-Efb" secondAttribute="trailing" id="SYZ-kp-kEJ"/>
+                            <constraint firstItem="KEc-AQ-Efb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="b1K-OK-h7o"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KEc-AQ-Efb" secondAttribute="bottom" id="qqU-56-kNv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="UkA-O1-bML"/>
                     <connections>
+                        <outlet property="table" destination="KEc-AQ-Efb" id="Sij-iz-YC6"/>
                         <segue destination="adc-en-1tL" kind="show" identifier="MainToDetail" id="Afh-7M-HW7"/>
                     </connections>
                 </viewController>

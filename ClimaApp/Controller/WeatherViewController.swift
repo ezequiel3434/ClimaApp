@@ -14,12 +14,24 @@ class WeatherViewController: UIViewController{
     @IBOutlet var table: UITableView!
     
     var models = [Weather]()
+    let weatherManager = WeatherManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         table.delegate = self
         table.dataSource = self
         
+        // Register 2 cells
+        table.register(HourlyTableViewCell.nib(), forCellReuseIdentifier: WeatherTableViewCell.identifier)
+        table.register(WeatherTableViewCell.nib(), forCellReuseIdentifier: WeatherTableViewCell.identifier)
+        
+        
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        weatherManager.setupLocation()
     }
 
 
