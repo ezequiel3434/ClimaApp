@@ -20,6 +20,7 @@
 		37A8921E252FFC9000C50BC6 /* HourlyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A8921C252FFC8F00C50BC6 /* HourlyTableViewCell.swift */; };
 		37A8921F252FFC9000C50BC6 /* HourlyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A8921D252FFC8F00C50BC6 /* HourlyTableViewCell.xib */; };
 		37A89221252FFFF700C50BC6 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A89220252FFFF700C50BC6 /* WeatherManager.swift */; };
+		37A892232531185000C50BC6 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A892222531185000C50BC6 /* CurrentWeather.swift */; };
 		70C246E169A29DE4CEE2F2EF /* Pods_ClimaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 361D0FBA21F9B06ACF26FDCB /* Pods_ClimaApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		37A8921C252FFC8F00C50BC6 /* HourlyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyTableViewCell.swift; sourceTree = "<group>"; };
 		37A8921D252FFC8F00C50BC6 /* HourlyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourlyTableViewCell.xib; sourceTree = "<group>"; };
 		37A89220252FFFF700C50BC6 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
+		37A892222531185000C50BC6 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			children = (
 				37A89214252FF94300C50BC6 /* Weather.swift */,
 				37A89220252FFFF700C50BC6 /* WeatherManager.swift */,
+				37A892222531185000C50BC6 /* CurrentWeather.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				37A89200252F5E3B00C50BC6 /* WeatherViewController.swift in Sources */,
 				37A89221252FFFF700C50BC6 /* WeatherManager.swift in Sources */,
 				37A891FC252F5E3B00C50BC6 /* AppDelegate.swift in Sources */,
+				37A892232531185000C50BC6 /* CurrentWeather.swift in Sources */,
 				37A891FE252F5E3B00C50BC6 /* SceneDelegate.swift in Sources */,
 				37A89213252FBB1400C50BC6 /* DatailViewController.swift in Sources */,
 				37A8921E252FFC9000C50BC6 /* HourlyTableViewCell.swift in Sources */,

@@ -18,6 +18,8 @@ class WeatherViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        CurrentWeather.getCurrentWeather()
         table.delegate = self
         table.dataSource = self
         
