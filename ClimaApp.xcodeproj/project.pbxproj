@@ -21,6 +21,7 @@
 		37A8921F252FFC9000C50BC6 /* HourlyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A8921D252FFC8F00C50BC6 /* HourlyTableViewCell.xib */; };
 		37A89221252FFFF700C50BC6 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A89220252FFFF700C50BC6 /* WeatherManager.swift */; };
 		37A892232531185000C50BC6 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A892222531185000C50BC6 /* CurrentWeather.swift */; };
+		37A89225253150EA00C50BC6 /* GlobalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A89224253150EA00C50BC6 /* GlobalHelpers.swift */; };
 		70C246E169A29DE4CEE2F2EF /* Pods_ClimaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 361D0FBA21F9B06ACF26FDCB /* Pods_ClimaApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		37A8921D252FFC8F00C50BC6 /* HourlyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourlyTableViewCell.xib; sourceTree = "<group>"; };
 		37A89220252FFFF700C50BC6 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		37A892222531185000C50BC6 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		37A89224253150EA00C50BC6 /* GlobalHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				37A891FB252F5E3B00C50BC6 /* AppDelegate.swift */,
 				37A891FD252F5E3B00C50BC6 /* SceneDelegate.swift */,
+				37A89224253150EA00C50BC6 /* GlobalHelpers.swift */,
 				37A89211252F93DF00C50BC6 /* Controller */,
 				37A89210252F93D500C50BC6 /* View */,
 				37A8920F252F93C600C50BC6 /* Model */,
@@ -274,6 +277,7 @@
 			files = (
 				37A8921A252FFC3D00C50BC6 /* WeatherTableViewCell.swift in Sources */,
 				37A89200252F5E3B00C50BC6 /* WeatherViewController.swift in Sources */,
+				37A89225253150EA00C50BC6 /* GlobalHelpers.swift in Sources */,
 				37A89221252FFFF700C50BC6 /* WeatherManager.swift in Sources */,
 				37A891FC252F5E3B00C50BC6 /* AppDelegate.swift in Sources */,
 				37A892232531185000C50BC6 /* CurrentWeather.swift in Sources */,

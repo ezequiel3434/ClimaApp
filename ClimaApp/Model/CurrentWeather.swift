@@ -125,7 +125,7 @@ class CurrentWeather {
         return _visibility
     }
     
-    static func getCurrentWeather() {
+    func getCurrentWeather(completion: @escaping(_ success: Bool) -> Void) {
         let LOCATIONAPI_URL = "https://api.weatherbit.io/v2.0/current?city=Mendoza,AR&key=7c1909634a1c40259418c967a63191a4"
         
         AF.request(LOCATIONAPI_URL).responseJSON { (response) in
@@ -134,9 +134,26 @@ class CurrentWeather {
             switch result {
             case .success(let value):
                 let json = JSON(value)
-                print(json)
+//                print(json)
+                self._city = json["data"][0]["city_name"].stringValue
+                self._date = currentDateFromUnix(unixDate: json["data"][0]["ts"].double)
+                self._weatherType = json["data"][0]["weather"]["description"].stringValue
+                self._currentTemp = json["data"][0]["temp"].double
+                self._feelsLike = json["data"][0]["app_temp"].double
+                self._pressure = json["data"][0]["pres"].double
+                self._humedity = json["data"][0]["rh"].double
+                self._windSpeed = json["data"][0]["wind_spd"].double
+                self._weatherIcon = json["data"][0]["weather"]["icon"].stringValue
+                self._visibility = json["data"][0]["vis"].double
+                self._uv = json["data"][0]["uv"].double
+                self._sunrise = json["data"][0]["sunrise"].stringValue
+                self._sunset = json["data"][0]["sunrise"].stringValue
+                
+                
+                completion(true)
                 break
             case .failure(let error):
+                completion(false)
                 print("No result for current Location with error: \(error)")
                 break
             

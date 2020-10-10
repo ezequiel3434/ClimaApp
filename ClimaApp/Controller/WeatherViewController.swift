@@ -11,45 +11,27 @@ import CoreLocation
 
 class WeatherViewController: UIViewController{
 
-    @IBOutlet var table: UITableView!
     
-    var models = [Weather]()
-    let weatherManager = WeatherManager()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CurrentWeather.getCurrentWeather()
-        table.delegate = self
-        table.dataSource = self
+        let currentWeather = CurrentWeather()
+        currentWeather.getCurrentWeather { (success) in
+            if success {
+                print("city is: ", currentWeather.city, currentWeather.currentTemp)
+            }
+        }
         
-        // Register 2 cells
-        table.register(HourlyTableViewCell.nib(), forCellReuseIdentifier: WeatherTableViewCell.identifier)
-        table.register(WeatherTableViewCell.nib(), forCellReuseIdentifier: WeatherTableViewCell.identifier)
         
         
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        weatherManager.setupLocation()
-    }
-
+    
 
 }
 
-//MARK: - UITableViewDelegate, UITableViewDataSource
 
-extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
-    
-    
-}
 
