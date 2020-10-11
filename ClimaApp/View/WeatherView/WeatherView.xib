@@ -67,9 +67,78 @@
                         <constraint firstItem="SyM-hM-U6J" firstAttribute="top" secondItem="v25-FL-tJa" secondAttribute="top" constant="10" id="zJE-Am-Dso"/>
                     </constraints>
                 </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xeF-JO-PiX">
+                    <rect key="frame" x="0.0" y="306" width="414" height="668"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mek-m2-a8j">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="547"/>
+                            <subviews>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="lA7-BI-KvS">
+                                    <rect key="frame" x="5" y="0.0" width="404" height="100"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="zOx-DP-qZc"/>
+                                    </constraints>
+                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0bA-WW-npF">
+                                        <size key="itemSize" width="80" height="100"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                </collectionView>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Who-HF-a8P">
+                                    <rect key="frame" x="5" y="104" width="404" height="80"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="MKe-UO-lm2"/>
+                                        <constraint firstAttribute="height" constant="80" id="pdM-PP-mdL"/>
+                                    </constraints>
+                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dgu-vb-B4u">
+                                        <size key="itemSize" width="80" height="80"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                </collectionView>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pTy-GQ-Omi">
+                                    <rect key="frame" x="5" y="188" width="404" height="360"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="360" id="oHX-Sr-O5A"/>
+                                    </constraints>
+                                </tableView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="pTy-GQ-Omi" secondAttribute="trailing" constant="5" id="8RB-vb-cKm"/>
+                                <constraint firstAttribute="trailing" secondItem="lA7-BI-KvS" secondAttribute="trailing" constant="5" id="A5i-d4-72Y"/>
+                                <constraint firstAttribute="trailing" secondItem="Who-HF-a8P" secondAttribute="trailing" constant="5" id="Eje-jd-gps"/>
+                                <constraint firstItem="lA7-BI-KvS" firstAttribute="top" secondItem="mek-m2-a8j" secondAttribute="top" id="GNw-Ui-aWL"/>
+                                <constraint firstItem="pTy-GQ-Omi" firstAttribute="leading" secondItem="mek-m2-a8j" secondAttribute="leading" constant="5" id="H2m-FP-rrN"/>
+                                <constraint firstItem="Who-HF-a8P" firstAttribute="top" secondItem="lA7-BI-KvS" secondAttribute="bottom" constant="4" id="NGM-ou-7B5"/>
+                                <constraint firstAttribute="height" constant="547" id="UUL-Kf-SUN"/>
+                                <constraint firstItem="pTy-GQ-Omi" firstAttribute="top" secondItem="Who-HF-a8P" secondAttribute="bottom" constant="4" id="Vss-OI-5TO"/>
+                                <constraint firstItem="Who-HF-a8P" firstAttribute="leading" secondItem="mek-m2-a8j" secondAttribute="leading" constant="5" id="ncS-I6-QhC"/>
+                                <constraint firstItem="lA7-BI-KvS" firstAttribute="leading" secondItem="mek-m2-a8j" secondAttribute="leading" constant="5" id="s9C-g1-5KR"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.42745098040000001" green="0.73725490199999999" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="mek-m2-a8j" firstAttribute="width" secondItem="xeF-JO-PiX" secondAttribute="width" id="9oe-uk-Xvd"/>
+                        <constraint firstItem="mek-m2-a8j" firstAttribute="height" secondItem="xeF-JO-PiX" secondAttribute="height" priority="250" id="CuO-OL-kcf"/>
+                        <constraint firstItem="mek-m2-a8j" firstAttribute="leading" secondItem="xeF-JO-PiX" secondAttribute="leading" id="GWd-nR-To5"/>
+                        <constraint firstItem="mek-m2-a8j" firstAttribute="top" secondItem="xeF-JO-PiX" secondAttribute="top" id="XJ7-cK-tz1"/>
+                        <constraint firstAttribute="trailing" secondItem="mek-m2-a8j" secondAttribute="trailing" id="sC3-xV-oOB"/>
+                    </constraints>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="xeF-JO-PiX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7Uq-Nq-VSY"/>
+                <constraint firstItem="xeF-JO-PiX" firstAttribute="top" secondItem="v25-FL-tJa" secondAttribute="bottom" constant="4" id="SRL-MV-yHT"/>
+                <constraint firstItem="xeF-JO-PiX" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="YPc-iL-lpg"/>
+                <constraint firstAttribute="bottom" secondItem="xeF-JO-PiX" secondAttribute="bottom" id="itq-5I-3Ey"/>
                 <constraint firstItem="v25-FL-tJa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qmN-PV-the"/>
                 <constraint firstItem="v25-FL-tJa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="uMO-N0-vtm"/>
                 <constraint firstItem="v25-FL-tJa" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="xVL-I9-YRp"/>
