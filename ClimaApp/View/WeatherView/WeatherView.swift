@@ -49,14 +49,21 @@ class WeatherView: UIView {
     }
 
     private func setupTableView(){
+        tableView.register(UINib(nibName: "WeatherTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "Cell")
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
         
     }
     private func setupHourlyCollectionView(){
-        
+        hourlyCollectionView.register(UINib(nibName: "ForecastCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "Cell")
+        hourlyCollectionView.dataSource = self
     }
     
     private func setupInfoCollectionView(){
-        
+        hourlyCollectionView.register(UINib(nibName: "InfoCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "Cell")
+        hourlyCollectionView.dataSource = self
     }
     
     func refreshData() {
