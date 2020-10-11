@@ -17,11 +17,13 @@ class WeatherViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        HourlyForecsast.downloadHourlyForecastWeather { (hourlyForecastArray) in
-            for data in hourlyForecastArray {
-                print("forecast data: \(data.temp) \(data.date) \(data.weatherIcon)")
+        WeeklyWeatherForecast.downloadWeeklyWeatherForecast { (weeklyForecastArray) in
+            for item in weeklyForecastArray {
+                print("Forecast info: \(item.date) \(item.temp) \(item.weatherIcon)")
             }
         }
+        
+        
         
         
         
