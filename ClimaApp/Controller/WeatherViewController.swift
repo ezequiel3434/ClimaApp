@@ -11,17 +11,16 @@ import CoreLocation
 
 class WeatherViewController: UIViewController{
 
+    //MARK: - IBOulets
+    @IBOutlet weak var weatherScrollView: UIScrollView!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     
-    
+    //MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        WeeklyWeatherForecast.downloadWeeklyWeatherForecast { (weeklyForecastArray) in
-            for item in weeklyForecastArray {
-                print("Forecast info: \(item.date) \(item.temp) \(item.weatherIcon)")
-            }
-        }
+       
         
         
         

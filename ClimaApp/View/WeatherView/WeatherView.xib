@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherView" customModule="ClimaApp" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="974"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v25-FL-tJa">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="302"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SyM-hM-U6J">
+                            <rect key="frame" x="8" y="10" width="398" height="23.5"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aH9-gm-OGk">
+                            <rect key="frame" x="8" y="48.5" width="398" height="23.5"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WeatherInfo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCe-JB-17b">
+                            <rect key="frame" x="8" y="237" width="398" height="23.5"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVG-kJ-agY">
+                            <rect key="frame" x="8" y="127" width="398" height="95"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="95" id="zCT-sb-Ela"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="90"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="SyM-hM-U6J" secondAttribute="trailing" constant="8" id="5Fb-gt-vKM"/>
+                        <constraint firstItem="aH9-gm-OGk" firstAttribute="top" secondItem="SyM-hM-U6J" secondAttribute="bottom" constant="15" id="7Pg-d8-EzJ"/>
+                        <constraint firstItem="QCe-JB-17b" firstAttribute="leading" secondItem="v25-FL-tJa" secondAttribute="leading" constant="8" id="7f3-hH-Xyt"/>
+                        <constraint firstItem="iVG-kJ-agY" firstAttribute="centerX" secondItem="v25-FL-tJa" secondAttribute="centerX" id="BKb-uU-5kJ"/>
+                        <constraint firstItem="QCe-JB-17b" firstAttribute="top" secondItem="iVG-kJ-agY" secondAttribute="bottom" constant="15" id="BQU-Hj-Gbo"/>
+                        <constraint firstItem="aH9-gm-OGk" firstAttribute="top" secondItem="SyM-hM-U6J" secondAttribute="bottom" constant="15" id="CWo-Qb-oeS"/>
+                        <constraint firstAttribute="trailing" secondItem="QCe-JB-17b" secondAttribute="trailing" constant="8" id="Lw6-Tm-0st"/>
+                        <constraint firstAttribute="trailing" secondItem="iVG-kJ-agY" secondAttribute="trailing" constant="8" id="Tz7-Mg-bBK"/>
+                        <constraint firstItem="SyM-hM-U6J" firstAttribute="leading" secondItem="v25-FL-tJa" secondAttribute="leading" constant="8" id="U0X-T0-GRT"/>
+                        <constraint firstItem="aH9-gm-OGk" firstAttribute="leading" secondItem="v25-FL-tJa" secondAttribute="leading" constant="8" id="YPf-5M-vTU"/>
+                        <constraint firstAttribute="height" constant="302" id="mlt-s6-Hg7"/>
+                        <constraint firstItem="iVG-kJ-agY" firstAttribute="leading" secondItem="v25-FL-tJa" secondAttribute="leading" constant="8" id="yj6-ll-xAI"/>
+                        <constraint firstItem="iVG-kJ-agY" firstAttribute="top" secondItem="aH9-gm-OGk" secondAttribute="bottom" constant="55" id="ysg-23-jpq"/>
+                        <constraint firstAttribute="trailing" secondItem="aH9-gm-OGk" secondAttribute="trailing" constant="8" id="zCe-TL-7Bn"/>
+                        <constraint firstItem="SyM-hM-U6J" firstAttribute="top" secondItem="v25-FL-tJa" secondAttribute="top" constant="10" id="zJE-Am-Dso"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="v25-FL-tJa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qmN-PV-the"/>
+                <constraint firstItem="v25-FL-tJa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="uMO-N0-vtm"/>
+                <constraint firstItem="v25-FL-tJa" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="xVL-I9-YRp"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="153.34821428571428"/>
+        </view>
+    </objects>
+</document>
