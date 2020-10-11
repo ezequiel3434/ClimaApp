@@ -8,23 +8,51 @@
 
 import UIKit
 
-class WeatherView: UIViewController {
+class WeatherView: UIView {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    //MARK: - IBOulets
+    @IBOutlet var mainView: UIView!
+    @IBOutlet weak var cityNameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var weatherInfoLabel: UILabel!
+    @IBOutlet weak var tempLabel: UILabel!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var bottomContainer: UIView!
+    @IBOutlet weak var hourlyCollectionView: UICollectionView!
+    @IBOutlet weak var infoCollectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        mainInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        mainInit()
+    }
+    
+    private func mainInit(){
+        Bundle.main.loadNibNamed("WeatherView", owner: self, options: nil)
+        addSubview(mainView)
+        mainView.frame = self.bounds
+        mainView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
+        setupTableView()
+        setupInfoCollectionView()
+        setupInfoCollectionView()
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupTableView(){
+        
     }
-    */
+    private func setupHourlyCollectionView(){
+        
+    }
+    
+    private func setupInfoCollectionView(){
+        
+    }
 
 }

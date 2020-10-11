@@ -9,7 +9,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherView" customModule="ClimaApp" customModuleProvider="target">
             <connections>
+                <outlet property="bottomContainer" destination="mek-m2-a8j" id="SbD-Au-oUG"/>
+                <outlet property="cityNameLabel" destination="SyM-hM-U6J" id="DKo-8t-QhX"/>
+                <outlet property="dateLabel" destination="aH9-gm-OGk" id="Wv0-u0-yOg"/>
+                <outlet property="hourlyCollectionView" destination="lA7-BI-KvS" id="XJ0-Qz-Mfj"/>
+                <outlet property="infoCollectionView" destination="Who-HF-a8P" id="YEP-XX-BNh"/>
+                <outlet property="mainView" destination="i5M-Pr-FkT" id="BnK-m3-0l9"/>
+                <outlet property="scrollView" destination="xeF-JO-PiX" id="L5d-ii-A9c"/>
+                <outlet property="tableView" destination="pTy-GQ-Omi" id="ayA-fS-UkU"/>
+                <outlet property="tempLabel" destination="iVG-kJ-agY" id="fFE-EM-Bwd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weatherInfoLabel" destination="QCe-JB-17b" id="HxB-em-Q4N"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
