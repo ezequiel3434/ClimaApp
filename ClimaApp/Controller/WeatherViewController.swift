@@ -24,18 +24,23 @@ class WeatherViewController: UIViewController{
         
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         let weatherView = WeatherView()
-        scrollContentView.addSubview(weatherView)
-        
-        
-        weatherView.frame = CGRect(x: 0, y: 0, width: scrollContentView.bounds.width, height: scrollContentView.bounds.height)
-        
-        weatherScrollView.addSubview(scrollContentView)
+               scrollContentView.addSubview(weatherView)
+               
+               
+               weatherView.frame = CGRect(x: 0, y: 0, width: scrollContentView.bounds.width, height: scrollContentView.bounds.height)
+               
+               weatherScrollView.addSubview(scrollContentView)
+               weatherView.currentWeather = CurrentWeather()
+               weatherView.currentWeather.getCurrentWeather { (success) in
+                   weatherView.refreshData()
+               }
+               
     }
-    
+
     
     
 }
