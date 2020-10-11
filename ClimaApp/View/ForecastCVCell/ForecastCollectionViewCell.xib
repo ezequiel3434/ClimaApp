@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ForecastCollectionViewCell" customModule="ClimaApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6G7-4r-4Mr">
+                        <rect key="frame" x="8" y="68.5" width="64" height="23.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                        <color key="textColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qpp-2w-ekz">
+                        <rect key="frame" x="25" y="35" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="diD-uR-n29"/>
+                            <constraint firstAttribute="height" constant="30" id="toc-ee-TBF"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tnp-uO-Yhd">
+                        <rect key="frame" x="8" y="5" width="64" height="23.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                        <color key="textColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="6G7-4r-4Mr" secondAttribute="trailing" constant="8" id="0cB-ec-p6v"/>
+                <constraint firstItem="6G7-4r-4Mr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="5A5-bi-M6a"/>
+                <constraint firstItem="Qpp-2w-ekz" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="SD1-GD-6XJ"/>
+                <constraint firstItem="Tnp-uO-Yhd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="hKn-m5-jGO"/>
+                <constraint firstItem="Qpp-2w-ekz" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="lRG-Vj-FKy"/>
+                <constraint firstAttribute="bottom" secondItem="6G7-4r-4Mr" secondAttribute="bottom" constant="8" id="oI8-aT-fIC"/>
+                <constraint firstAttribute="trailing" secondItem="Tnp-uO-Yhd" secondAttribute="trailing" constant="8" id="wrZ-Tc-NWc"/>
+                <constraint firstItem="Tnp-uO-Yhd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="wy3-59-IXd"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="tempLabel" destination="6G7-4r-4Mr" id="mrs-ce-IyB"/>
+                <outlet property="timeLabel" destination="Tnp-uO-Yhd" id="T8J-bj-NPh"/>
+                <outlet property="weatherIconImageView" destination="Qpp-2w-ekz" id="Kh1-bc-KEG"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="154"/>
+        </collectionViewCell>
+    </objects>
+</document>

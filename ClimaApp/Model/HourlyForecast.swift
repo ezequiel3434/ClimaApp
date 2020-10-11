@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class HourlyForecsast {
+class HourlyForecast {
     private var _date: Date!
     private var _temp: Double!
     private var _weatherIcon: String!
@@ -47,14 +47,14 @@ class HourlyForecsast {
     }
     
     
-    static func downloadHourlyForecastWeather(completion: @escaping(_ hourlyForecast: [HourlyForecsast])->Void) {
+    static func downloadHourlyForecastWeather(completion: @escaping(_ hourlyForecast: [HourlyForecast])->Void) {
         
         let HOURLYFORECAST_URL = "https://api.weatherbit.io/v2.0/forecast/hourly?city=Mendoza,AR&hours=24&key=7c1909634a1c40259418c967a63191a4"
         
         AF.request(HOURLYFORECAST_URL).responseJSON { (response) in
             
             let result = response.result
-            var forecastArray: [HourlyForecsast] = []
+            var forecastArray: [HourlyForecast] = []
             switch result {
                 
             case .success(let value):
@@ -63,7 +63,7 @@ class HourlyForecsast {
                 if let dictionary = value as? Dictionary<String, AnyObject> {
                     if let list = dictionary["data"] as? [Dictionary<String,AnyObject>] {
                         for item in list {
-                            let forecast = HourlyForecsast(weatherDictionary: item)
+                            let forecast = HourlyForecast(weatherDictionary: item)
                             forecastArray.append(forecast)
                         }
                     }
