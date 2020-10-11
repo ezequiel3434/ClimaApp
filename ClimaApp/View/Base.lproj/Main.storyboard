@@ -66,6 +66,7 @@
                     <navigationItem key="navigationItem" id="UkA-O1-bML"/>
                     <connections>
                         <outlet property="pageControl" destination="849-0Y-zHF" id="lI3-3x-IQ6"/>
+                        <outlet property="scrollContentView" destination="kzB-AO-Yl8" id="PJg-EH-eYb"/>
                         <outlet property="weatherScrollView" destination="dac-Io-RY3" id="6o7-hM-o5z"/>
                     </connections>
                 </viewController>
