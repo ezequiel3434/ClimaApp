@@ -48,7 +48,7 @@ class WeatherView: UIView {
         
         setupTableView()
         setupInfoCollectionView()
-        setupInfoCollectionView()
+        setupHourlyCollectionView()
     }
 
     private func setupTableView(){
@@ -65,8 +65,8 @@ class WeatherView: UIView {
     }
     
     private func setupInfoCollectionView(){
-        hourlyCollectionView.register(UINib(nibName: "InfoCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "Cell")
-        hourlyCollectionView.dataSource = self
+        infoCollectionView.register(UINib(nibName: "InfoCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "Cell")
+        infoCollectionView.dataSource = self
     }
     
     func refreshData() {
@@ -103,6 +103,7 @@ extension WeatherView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == hourlyCollectionView {
+            
             return dailyWeatherForecastData.count
         } else {
             return weatherInfoData.count
@@ -111,11 +112,15 @@ extension WeatherView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         if collectionView == hourlyCollectionView {
+            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ForecastCollectionViewCell
             cell.generateCell(weather: dailyWeatherForecastData[indexPath.row])
+            
             return cell
         } else {
+            print("weekly")
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! InfoCollectionViewCell
             cell.generateCell(weatherInfo: weatherInfoData[indexPath.row])
             return cell

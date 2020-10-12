@@ -26,8 +26,12 @@ class WeatherViewController: UIViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
+        let weatherView = WeatherView()
+        weatherView.frame = CGRect(x: 0, y: 0, width: weatherScrollView.bounds.width, height: weatherScrollView.bounds.height)
+        weatherScrollView.addSubview(weatherView)
+        getCurrentWeather(weatherView: weatherView)
+        getWeeklyWeather(weatherView: weatherView)
+        getHourlyWeather(weatherView: weatherView)
                
     }
     
@@ -43,13 +47,17 @@ class WeatherViewController: UIViewController{
     private func getWeeklyWeather(weatherView: WeatherView){
         WeeklyWeatherForecast.downloadWeeklyWeatherForecast { (weatherForecasts) in
             weatherView.weeklyWeatherForecastData = weatherForecasts
-            weatherView.refreshData()
+            
+            weatherView.tableView.reloadData()
         }
     }
     
     private func getHourlyWeather(weatherView: WeatherView){
         HourlyForecast.downloadHourlyForecastWeather { (weatherForecasts) in
+            
             weatherView.dailyWeatherForecastData = weatherForecasts
+            
+            weatherView.hourlyCollectionView.reloadData()
         }
     }
 

@@ -36,6 +36,7 @@
                         </constraints>
                     </imageView>
                 </subviews>
+                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="WYQ-GJ-mvH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="GWi-Vv-hax"/>
                     <constraint firstItem="EZH-9U-rUT" firstAttribute="leading" secondItem="WYQ-GJ-mvH" secondAttribute="trailing" constant="8" id="LFF-8B-deS"/>
