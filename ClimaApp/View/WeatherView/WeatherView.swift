@@ -25,6 +25,9 @@ class WeatherView: UIView {
     
     //MARK: - Vars
     var currentWeather: CurrentWeather!
+    var weeklyWeatherForecastData: [WeeklyWeatherForecast] = []
+    var dailyWeatherForecastData: [HourlyForecast] = []
+    var weatherInfoData: [WeatherInfo] = []
     
     //MARK: - Inits
     override init(frame: CGRect) {
@@ -77,4 +80,47 @@ class WeatherView: UIView {
         tempLabel.text = "\(currentWeather.currentTemp)"
     }
 
+}
+
+//MARK: - UITableViewDelegate, UITableViewDataSource
+extension WeatherView: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return weeklyWeatherForecastData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WeatherTableViewCell
+        cell.generateCell(forecast: weeklyWeatherForecastData[indexPath.row])
+        return cell
+    }
+    
+    
+    
+}
+
+//MARK: - UICollectionViewDataSource
+extension WeatherView: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if collectionView == hourlyCollectionView {
+            return dailyWeatherForecastData.count
+        } else {
+            return weatherInfoData.count
+        }
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == hourlyCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ForecastCollectionViewCell
+            cell.generateCell(weather: dailyWeatherForecastData[indexPath.row])
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! InfoCollectionViewCell
+            cell.generateCell(weatherInfo: weatherInfoData[indexPath.row])
+            return cell
+        }
+    }
+    
+    
 }
