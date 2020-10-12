@@ -47,9 +47,17 @@ class HourlyForecast {
     }
     
     
-    static func downloadHourlyForecastWeather(completion: @escaping(_ hourlyForecast: [HourlyForecast])->Void) {
+    static func downloadHourlyForecastWeather(location: WeatherLocation, completion: @escaping(_ hourlyForecast: [HourlyForecast])->Void) {
         
-        let HOURLYFORECAST_URL = "https://api.weatherbit.io/v2.0/forecast/hourly?city=Mendoza,AR&hours=24&key=7c1909634a1c40259418c967a63191a4"
+        
+        
+        var HOURLYFORECAST_URL: String!
+        
+        if !location.isCurrentLocation {
+            HOURLYFORECAST_URL = String(format: "https://api.weatherbit.io/v2.0/forecast/hourly?city=%@,%@&hours=24&key=7c1909634a1c40259418c967a63191a4", location.city, location.countryCode)
+        } else {
+            HOURLYFORECAST_URL = CURRENTLOCATIONHOURLYFORECAST_URL
+        }
         
         AF.request(HOURLYFORECAST_URL).responseJSON { (response) in
             
