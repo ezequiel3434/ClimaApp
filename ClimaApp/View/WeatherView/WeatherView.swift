@@ -71,6 +71,8 @@ class WeatherView: UIView {
     
     func refreshData() {
         setupCurrentWeather()
+        setupWeatherInfo()
+        infoCollectionView.reloadData()
     }
     
     private func setupCurrentWeather(){
@@ -78,6 +80,19 @@ class WeatherView: UIView {
         dateLabel.text = "Today, \(currentWeather.date.shortDate())"
         weatherInfoLabel.text = currentWeather.weatherType
         tempLabel.text = "\(currentWeather.currentTemp)"
+    }
+    
+    private func setupWeatherInfo() {
+        let windInfo = WeatherInfo(infoText: String.init(format: "%.1f m/s", currentWeather.windSpeed), nameText: nil, image: getWeatherIconFor("wind"))
+        let humidityInfo = WeatherInfo(infoText: String.init(format: "%.0f", currentWeather.humedity), nameText: nil, image: getWeatherIconFor("humidity"))
+        let pressureInfo = WeatherInfo(infoText: String.init(format: "%.0f mb", currentWeather.pressure), nameText: nil, image: getWeatherIconFor("pressure"))
+        let sunriseInfo = WeatherInfo(infoText: currentWeather.sunrise, nameText: nil, image: getWeatherIconFor("sunrise"))
+        let sunsetInfo = WeatherInfo(infoText: currentWeather.sunset, nameText: nil, image: getWeatherIconFor("sunset"))
+        let visibilityInfo = WeatherInfo(infoText: String.init(format: "%.0f km", currentWeather.visibility), nameText: nil, image: getWeatherIconFor("visibility"))
+        let feelslikeInfo = WeatherInfo(infoText: String.init(format: "%.1f", currentWeather.feelsLike), nameText: nil, image: getWeatherIconFor("feelslike"))
+        let uvInfo = WeatherInfo(infoText: String.init(format: "%.1f", currentWeather.uv), nameText: "UV Index", image: nil)
+        
+        weatherInfoData = [windInfo, humidityInfo, pressureInfo, sunriseInfo, sunsetInfo, visibilityInfo, feelslikeInfo, uvInfo]
     }
 
 }
@@ -120,7 +135,7 @@ extension WeatherView: UICollectionViewDataSource {
             
             return cell
         } else {
-            print("weekly")
+            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! InfoCollectionViewCell
             cell.generateCell(weatherInfo: weatherInfoData[indexPath.row])
             return cell

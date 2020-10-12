@@ -62,7 +62,7 @@ class CurrentWeather {
             _sunset = ""
         }
         
-        return _city
+        return _sunset
     }
     
     
@@ -147,7 +147,7 @@ class CurrentWeather {
                 self._visibility = json["data"][0]["vis"].double
                 self._uv = json["data"][0]["uv"].double
                 self._sunrise = json["data"][0]["sunrise"].stringValue
-                self._sunset = json["data"][0]["sunrise"].stringValue
+                self._sunset = json["data"][0]["sunset"].stringValue
                 
                 
                 completion(true)

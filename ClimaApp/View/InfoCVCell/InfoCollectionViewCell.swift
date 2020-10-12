@@ -22,7 +22,7 @@ class InfoCollectionViewCell: UICollectionViewCell {
     }
 
     func generateCell(weatherInfo: WeatherInfo) {
-        print("weather info")
+        
         infoLabel.text = weatherInfo.infoText
         infoLabel.adjustsFontSizeToFitWidth = true
         if weatherInfo.image != nil {
