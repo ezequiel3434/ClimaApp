@@ -7,6 +7,9 @@
 //
 
 import UIKit
+protocol AllLocationsTableViewControllerDelegate {
+    func didChooseLocation(atIndex: Int, shouldRefresh: Bool)
+}
 
 class AllLocationsTableViewController: UITableViewController {
     
@@ -15,6 +18,8 @@ class AllLocationsTableViewController: UITableViewController {
     var savedLocations: [WeatherLocation]?
     let userDefaults = UserDefaults.standard
     var weatherData: [CityTempData]?
+    
+    var delegate: AllLocationsTableViewControllerDelegate?
     
     //MARK: - View LifeCycle
     override func viewDidLoad() {
@@ -44,7 +49,9 @@ class AllLocationsTableViewController: UITableViewController {
     //MARK: - TableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        tableView.deselectRow(at: indexPath, animated: true)
+        delegate?.didChooseLocation(atIndex: indexPath.row, shouldRefresh: false)
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -94,8 +101,9 @@ class AllLocationsTableViewController: UITableViewController {
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "chooseLocationSeg" {
-            let vc = segue.destination as! ChooseCityViewController
+            let vc = segue.destination as! ChooseCityViewController 
             vc.delegate = self
+            
         }
     }
     

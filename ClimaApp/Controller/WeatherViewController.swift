@@ -25,6 +25,7 @@ class WeatherViewController: UIViewController{
     var allWeatherViews: [WeatherView] = []
     var allWeatherData: [CityTempData] = []
     
+    var shouldRefresh = true
     
     //MARK: - View LifeCycle
     override func viewDidLoad() {
@@ -35,7 +36,12 @@ class WeatherViewController: UIViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        locationAuthCheck()
+        if shouldRefresh {
+            allLocations = []
+            allWeatherViews = []
+            locationAuthCheck()
+        }
+        
 
                
     }
@@ -183,9 +189,24 @@ class WeatherViewController: UIViewController{
         if segue.identifier == "allLocationSeg" {
             let vc = segue.destination as! AllLocationsTableViewController
             vc.weatherData = allWeatherData
+            vc.delegate = self
         }
     }
 
+    
+    
+}
+
+//MARK: - AllLocationsTableViewControllerDelegate
+extension WeatherViewController: AllLocationsTableViewControllerDelegate {
+    func didChooseLocation(atIndex: Int, shouldRefresh: Bool) {
+        let viewNumber = CGFloat(integerLiteral: atIndex)
+        let newOffset = CGPoint(x: (weatherScrollView.frame.width + 1) * viewNumber, y: 0)
+        
+        weatherScrollView.setContentOffset(newOffset, animated: true)
+        updatePageControlSelectedPage(currentPage: atIndex)
+        self.shouldRefresh = shouldRefresh
+    }
     
     
 }
