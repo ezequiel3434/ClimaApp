@@ -14,7 +14,7 @@ class AllLocationsTableViewController: UITableViewController {
     
     var savedLocations: [WeatherLocation]?
     let userDefaults = UserDefaults.standard
-    
+    var weatherData: [CityTempData]?
     
     //MARK: - View LifeCycle
     override func viewDidLoad() {
@@ -27,25 +27,48 @@ class AllLocationsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 0
+        return weatherData?.count ?? 0
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainWeatherTableViewCell
         
-        // Configure the cell...
-        
+        if weatherData != nil {
+            cell.generateCell(weatherData: weatherData![indexPath.row])
+            
+        }
         return cell
     }
+    
+    //MARK: - TableViewDelegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        <#code#>
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.row != 0
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let locationToDelete = weatherData?[indexPath.row]
+            weatherData?.remove(at: indexPath.row)
+            
+            // Delete from userDefaults
+            tableView.reloadData()
+        }
+    }
+    
     
     //MARK: - UserDefaults
     private func loadFromUserDefaults(){
         if let data = userDefaults.value(forKey: "Locations") as? Data {
             savedLocations = try? PropertyListDecoder().decode(Array<WeatherLocation>.self, from: data)
-
+            
         }
-        print("number: \(savedLocations?.count)")
+        
     }
     
     
@@ -58,6 +81,7 @@ class AllLocationsTableViewController: UITableViewController {
     }
     
 }
+
 
 
 
