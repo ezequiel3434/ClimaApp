@@ -172,8 +172,17 @@ class WeatherViewController: UIViewController{
     
     private func generateWeatherList(){
         allWeatherData = []
+        
         for weatherView in allWeatherViews {
             allWeatherData.append(CityTempData(city: weatherView.currentWeather.city, temp: weatherView.currentWeather.currentTemp))
+        }
+    }
+    
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "allLocationSeg" {
+            let vc = segue.destination as! AllLocationsTableViewController
+            vc.weatherData = allWeatherData
         }
     }
 

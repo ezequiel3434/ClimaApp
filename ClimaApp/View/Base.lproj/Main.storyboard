@@ -48,7 +48,7 @@
                                     <barButtonItem systemItem="add" id="kYK-5x-OhQ">
                                         <color key="tintColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="LEV-yZ-J84" kind="show" id="pKr-gb-b8m"/>
+                                            <segue destination="LEV-yZ-J84" kind="show" identifier="allLocationSeg" id="pKr-gb-b8m"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
