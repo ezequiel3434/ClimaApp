@@ -30,22 +30,18 @@ class WeatherViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManagerStart()
-        
+        weatherScrollView.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         locationAuthCheck()
-//        let weatherView = WeatherView()
-//        weatherView.frame = CGRect(x: 0, y: 0, width: weatherScrollView.bounds.width, height: weatherScrollView.bounds.height)
-//        weatherScrollView.addSubview(weatherView)
-//
-//        weatherLocation = WeatherLocation(city: "Guaymallen", country: "Argentina", countryCode: "AR", isCurrentLocation: false)
-//
-//        getCurrentWeather(weatherView: weatherView)
-//        getWeeklyWeather(weatherView: weatherView)
-//        getHourlyWeather(weatherView: weatherView)
+
                
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        locationManagerStop()
     }
     
     //MARK: - Download Weather
@@ -54,6 +50,7 @@ class WeatherViewController: UIViewController{
         loadLocationsFromUserDefaults()
         createWeatherViews()
         addWeatherToScrollView()
+        setPageControlPageNumber()
     }
     
     private func createWeatherViews(){
@@ -122,6 +119,16 @@ class WeatherViewController: UIViewController{
             allLocations.append(currentLocation)
         }
     }
+    
+    //MARK: - Page Control
+    
+    private func setPageControlPageNumber(){
+        pageControl.numberOfPages = allWeatherViews.count
+    }
+    
+    private func updatePageControlSelectedPage(currentPage: Int){
+        pageControl.currentPage = currentPage
+    }
 
     
     //MARK: - Location Manager
@@ -172,3 +179,9 @@ extension WeatherViewController: CLLocationManagerDelegate {
     }
 }
 
+extension WeatherViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let value = scrollView.contentOffset.x / scrollView.frame.size.width
+        updatePageControlSelectedPage(currentPage: Int(round(value)))
+    }
+}
