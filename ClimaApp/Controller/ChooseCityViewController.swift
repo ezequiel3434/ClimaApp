@@ -27,16 +27,17 @@ class ChooseCityViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
-        
-        tableView.tableHeaderView = searchController.searchBar
         setupSearchController()
+        tableView.tableHeaderView = searchController.searchBar
+        
         loadLocationsFromCSV()
+        loadFromUserDefaults()
     }
     
     private func setupSearchController(){
         searchController.searchBar.placeholder = "City or Country"
         searchController.searchResultsUpdater = self
-//        searchController.dimsBackgroundDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         searchController.searchBar.searchTextField.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         searchController.searchBar.searchBarStyle = UISearchBar.Style.prominent
@@ -85,15 +86,17 @@ class ChooseCityViewController: UIViewController {
                 savedLocations!.append(location)
             }
         } else {
+            
             savedLocations = [location]
         }
-        userDefaults.set(savedLocations, forKey: "Locations")
+        userDefaults.set(try? PropertyListEncoder().encode(savedLocations!) , forKey: "Locations")
         userDefaults.synchronize()
     }
     
     private func loadFromUserDefaults(){
         if let data = userDefaults.value(forKey: "Locations") as? Data {
-//            savedLocations = data
+            savedLocations = try? PropertyListDecoder().decode(Array<WeatherLocation>.self, from: data)
+            print(savedLocations?.first?.city)
         }
     }
 
@@ -133,6 +136,7 @@ extension ChooseCityViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // save location
         tableView.deselectRow(at: indexPath, animated: true)
+        
         saveToUserDefaults(location: filteredLocations[indexPath.row])
     }
     
