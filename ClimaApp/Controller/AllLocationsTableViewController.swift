@@ -56,9 +56,28 @@ class AllLocationsTableViewController: UITableViewController {
             let locationToDelete = weatherData?[indexPath.row]
             weatherData?.remove(at: indexPath.row)
             
-            // Delete from userDefaults
+            removeLocationFromSavedLocation(location: locationToDelete!.city)
+            
             tableView.reloadData()
         }
+    }
+    
+    private func removeLocationFromSavedLocation(location: String) {
+        if savedLocations != nil {
+            for i in 0..<savedLocations!.count {
+                let tempLocation = savedLocations![i]
+                if tempLocation.city == location {
+                    savedLocations?.remove(at: i)
+                    saveNewLocationsToUserDefaults()
+                    return
+                }
+            }
+        }
+    }
+    
+    private func saveNewLocationsToUserDefaults(){
+        userDefaults.set(try? PropertyListEncoder().encode(savedLocations!), forKey: "Locations")
+        userDefaults.synchronize()
     }
     
     
