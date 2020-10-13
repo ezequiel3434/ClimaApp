@@ -18,27 +18,28 @@ class WeatherViewController: UIViewController{
     
     //MARK: - Vars
     var weatherLocation: WeatherLocation!
-    
+    var locationManager: CLLocationManager?
+    var currentLocation: CLLocationCoordinate2D!
     
     
     //MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        locationManagerStart()
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let weatherView = WeatherView()
-        weatherView.frame = CGRect(x: 0, y: 0, width: weatherScrollView.bounds.width, height: weatherScrollView.bounds.height)
-        weatherScrollView.addSubview(weatherView)
-        
-        weatherLocation = WeatherLocation(city: "Guaymallen", country: "Argentina", countryCode: "AR", isCurrentLocation: false)
-        
-        getCurrentWeather(weatherView: weatherView)
-        getWeeklyWeather(weatherView: weatherView)
-        getHourlyWeather(weatherView: weatherView)
+//        let weatherView = WeatherView()
+//        weatherView.frame = CGRect(x: 0, y: 0, width: weatherScrollView.bounds.width, height: weatherScrollView.bounds.height)
+//        weatherScrollView.addSubview(weatherView)
+//
+//        weatherLocation = WeatherLocation(city: "Guaymallen", country: "Argentina", countryCode: "AR", isCurrentLocation: false)
+//
+//        getCurrentWeather(weatherView: weatherView)
+//        getWeeklyWeather(weatherView: weatherView)
+//        getHourlyWeather(weatherView: weatherView)
                
     }
     
@@ -67,10 +68,25 @@ class WeatherViewController: UIViewController{
             weatherView.hourlyCollectionView.reloadData()
         }
     }
+    
+    //MARK: - Location Manager
+
+    private func locationManagerStart() {
+        if locationManager == nil {
+            locationManager = CLLocationManager()
+            locationManager!.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager!.requestWhenInUseAuthorization()
+            locationManager!.delegate = self
+        }
+        
+        locationManager!.startMonitoringSignificantLocationChanges()
+    }
 
     
     
 }
 
-
+extension WeatherViewController: CLLocationManagerDelegate {
+    
+}
 
