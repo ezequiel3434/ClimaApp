@@ -81,6 +81,7 @@ class WeatherViewController: UIViewController{
         weatherView.currentWeather = CurrentWeather()
         weatherView.currentWeather.getCurrentWeather(location: location) { (success) in
             weatherView.refreshData()
+            self.generateWeatherList()
         }
     }
     
@@ -168,17 +169,25 @@ class WeatherViewController: UIViewController{
             locationAuthCheck()
         }
     }
+    
+    private func generateWeatherList(){
+        allWeatherData = []
+        for weatherView in allWeatherViews {
+            allWeatherData.append(CityTempData(city: weatherView.currentWeather.city, temp: weatherView.currentWeather.currentTemp))
+        }
+    }
 
     
     
 }
 
+//MARK: - CLLocationManagerDelegate
 extension WeatherViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Failed to get location, \(error.localizedDescription)")
     }
 }
-
+//MARK: - UIScrollViewDelegate
 extension WeatherViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let value = scrollView.contentOffset.x / scrollView.frame.size.width

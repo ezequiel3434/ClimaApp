@@ -12,3 +12,4 @@ struct CityTempData {
     var city: String!
     var temp: Double!
 }
+
