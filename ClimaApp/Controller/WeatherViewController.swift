@@ -45,6 +45,10 @@ class WeatherViewController: UIViewController{
     
     //MARK: - Download Weather
     
+    private func getWeather() {
+        
+    }
+    
     private func getCurrentWeather(weatherView: WeatherView){
         weatherView.currentWeather = CurrentWeather()
         weatherView.currentWeather.getCurrentWeather(location: weatherLocation) { (success) in
@@ -93,7 +97,11 @@ class WeatherViewController: UIViewController{
             currentLocation = locationManager!.location?.coordinate
             
             if currentLocation != nil {
-                // set our coordinates
+                
+                LocationService.shared.latitude = currentLocation.latitude
+                LocationService.shared.longitude = currentLocation.longitude
+                
+                getWeather()
             } else {
                 locationAuthCheck()
             }
