@@ -9,7 +9,7 @@
 import UIKit
 
 class ChooseCityViewController: UIViewController {
-
+    
     //MARK: - IBOutlets
     
     @IBOutlet weak var tableView: UITableView!
@@ -30,7 +30,13 @@ class ChooseCityViewController: UIViewController {
         setupSearchController()
         tableView.tableHeaderView = searchController.searchBar
         
+        setupTapGesture()
         loadLocationsFromCSV()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         loadFromUserDefaults()
     }
     
@@ -45,6 +51,15 @@ class ChooseCityViewController: UIViewController {
         searchController.searchBar.backgroundImage = UIImage()
     }
     
+    private func setupTapGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tableTapped))
+        self.tableView.backgroundView = UIView()
+        self.tableView.backgroundView?.addGestureRecognizer(tap)
+    }
+    
+    @objc func tableTapped() {
+        dissmisView()
+    }
     
     //MARK: - Get Locations
     
@@ -99,7 +114,17 @@ class ChooseCityViewController: UIViewController {
             print(savedLocations?.first?.city)
         }
     }
-
+    
+    private func dissmisView() {
+        if searchController.isActive {
+            searchController.dismiss(animated: true) {
+                self.dismiss(animated: true)
+            }
+        } else {
+            self.dismiss(animated: true)
+        }
+    }
+    
 }
 
 //MARK: - UISearchResultsUpdating
@@ -138,6 +163,10 @@ extension ChooseCityViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         
         saveToUserDefaults(location: filteredLocations[indexPath.row])
+        
+        dissmisView()
+        
+        
     }
     
     
