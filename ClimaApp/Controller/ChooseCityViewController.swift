@@ -21,12 +21,28 @@ class ChooseCityViewController: UIViewController {
     let searchController = UISearchController(searchResultsController: nil)
     
     
-    
+    //MARK: - view life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableView.tableFooterView = UIView()
+        
+        tableView.tableHeaderView = searchController.searchBar
+        setupSearchController()
         loadLocationsFromCSV()
     }
+    
+    private func setupSearchController(){
+        searchController.searchBar.placeholder = "City or Country"
+//        searchController.searchResultsUpdater = self
+//        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        searchController.searchBar.searchTextField.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        searchController.searchBar.searchBarStyle = UISearchBar.Style.prominent
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.backgroundImage = UIImage()
+    }
+    
     
     //MARK: - Get Locations
     
