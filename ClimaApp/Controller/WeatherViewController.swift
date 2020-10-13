@@ -81,12 +81,35 @@ class WeatherViewController: UIViewController{
         
         locationManager!.startMonitoringSignificantLocationChanges()
     }
+    
+    private func locationManagerStop() {
+        if locationManager != nil {
+            locationManager!.stopMonitoringSignificantLocationChanges()
+        }
+    }
+    
+    private func locationAuthCheck() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            currentLocation = locationManager!.location?.coordinate
+            
+            if currentLocation != nil {
+                // set our coordinates
+            } else {
+                locationAuthCheck()
+            }
+        } else {
+            locationManager?.requestWhenInUseAuthorization()
+            locationAuthCheck()
+        }
+    }
 
     
     
 }
 
 extension WeatherViewController: CLLocationManagerDelegate {
-    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Failed to get location, \(error.localizedDescription)")
+    }
 }
 
