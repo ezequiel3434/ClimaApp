@@ -17,8 +17,9 @@ class ChooseCityViewController: UIViewController {
     //MARK: - Vars
     var allLocations: [WeatherLocation] = []
     var filteredLocations: [WeatherLocation] = []
-    
     let searchController = UISearchController(searchResultsController: nil)
+    var savedLocations: [WeatherLocation]?
+    let userDefaults = UserDefaults.standard
     
     
     //MARK: - view life cycle
@@ -76,6 +77,25 @@ class ChooseCityViewController: UIViewController {
         allLocations.append(WeatherLocation(city: line.first!, country: line.last!, countryCode: line[1], isCurrentLocation: false))
         
     }
+    
+    //MARK: - UserDefaults
+    private func saveToUserDefaults(location: WeatherLocation){
+        if savedLocations != nil {
+            if !savedLocations!.contains(location) {
+                savedLocations!.append(location)
+            }
+        } else {
+            savedLocations = [location]
+        }
+        userDefaults.set(savedLocations, forKey: "Locations")
+        userDefaults.synchronize()
+    }
+    
+    private func loadFromUserDefaults(){
+        if let data = userDefaults.value(forKey: "Locations") as? Data {
+//            savedLocations = data
+        }
+    }
 
 }
 
@@ -112,6 +132,8 @@ extension ChooseCityViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // save location
+        tableView.deselectRow(at: indexPath, animated: true)
+        saveToUserDefaults(location: filteredLocations[indexPath.row])
     }
     
     
