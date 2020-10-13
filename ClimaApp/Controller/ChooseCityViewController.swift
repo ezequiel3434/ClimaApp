@@ -34,7 +34,7 @@ class ChooseCityViewController: UIViewController {
     
     private func setupSearchController(){
         searchController.searchBar.placeholder = "City or Country"
-//        searchController.searchResultsUpdater = self
+        searchController.searchResultsUpdater = self
 //        searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         searchController.searchBar.searchTextField.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -79,6 +79,24 @@ class ChooseCityViewController: UIViewController {
 
 }
 
+//MARK: - UISearchResultsUpdating
+extension ChooseCityViewController: UISearchResultsUpdating {
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredLocations = allLocations.filter({ (location) -> Bool in
+            return location.city.lowercased().contains(searchText.lowercased()) || location.country.lowercased().contains(searchText.lowercased())
+        })
+        tableView.reloadData()
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
+    }
+    
+    
+}
+
+//MARK: - UITableViewDelegate, UITableViewDataSource
 extension ChooseCityViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredLocations.count
@@ -86,7 +104,9 @@ extension ChooseCityViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath )
-        
+        let location = filteredLocations[indexPath.row]
+        cell.textLabel?.text = location.city
+        cell.detailTextLabel?.text = location.country
         return cell
     }
     
