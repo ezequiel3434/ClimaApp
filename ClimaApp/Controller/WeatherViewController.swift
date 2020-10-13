@@ -52,17 +52,42 @@ class WeatherViewController: UIViewController{
     
     private func getWeather() {
         loadLocationsFromUserDefaults()
-        print("we have \(allLocations.count) locations")
+        createWeatherViews()
+        addWeatherToScrollView()
     }
     
-    private func getCurrentWeather(weatherView: WeatherView){
+    private func createWeatherViews(){
+        for _ in allLocations {
+            allWeatherViews.append(WeatherView())
+        }
+    }
+    
+    private func addWeatherToScrollView(){
+        for i in 0..<allWeatherViews.count {
+            let weatherView = allWeatherViews[i]
+            let location = allLocations[i]
+            
+            getCurrentWeather(weatherView: weatherView, location: location)
+            getWeeklyWeather(weatherView: weatherView, location: location)
+            getHourlyWeather(weatherView: weatherView, location: location)
+            
+            let xPos = self.view.frame.width * CGFloat(i)
+            weatherView.frame = CGRect(x: xPos, y: 0, width: weatherScrollView.bounds.width, height: weatherScrollView.bounds.height)
+            
+            weatherScrollView.addSubview(weatherView)
+            weatherScrollView.contentSize.width = weatherView.frame.width * CGFloat(i+1)
+        }
+    }
+    
+    private func getCurrentWeather(weatherView: WeatherView, location: WeatherLocation){
+        
         weatherView.currentWeather = CurrentWeather()
         weatherView.currentWeather.getCurrentWeather(location: weatherLocation) { (success) in
             weatherView.refreshData()
         }
     }
     
-    private func getWeeklyWeather(weatherView: WeatherView){
+    private func getWeeklyWeather(weatherView: WeatherView, location: WeatherLocation){
         WeeklyWeatherForecast.downloadWeeklyWeatherForecast(location: weatherLocation) { (weatherForecasts) in
             weatherView.weeklyWeatherForecastData = weatherForecasts
             
@@ -70,7 +95,7 @@ class WeatherViewController: UIViewController{
         }
     }
     
-    private func getHourlyWeather(weatherView: WeatherView){
+    private func getHourlyWeather(weatherView: WeatherView, location: WeatherLocation){
         HourlyForecast.downloadHourlyForecastWeather(location: weatherLocation) { (weatherForecasts) in
             
             weatherView.dailyWeatherForecastData = weatherForecasts
