@@ -161,6 +161,7 @@ class CurrentWeather {
                 completion(true)
                 break
             case .failure(let error):
+                self._city = location.city
                 completion(false)
                 print("No result for current Location with error: \(error)")
                 break
