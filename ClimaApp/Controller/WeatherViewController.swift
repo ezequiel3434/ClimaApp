@@ -17,9 +17,13 @@ class WeatherViewController: UIViewController{
     @IBOutlet weak var scrollContentView: UIView!
     
     //MARK: - Vars
+    var userDefaults = UserDefaults.standard
     var weatherLocation: WeatherLocation!
     var locationManager: CLLocationManager?
     var currentLocation: CLLocationCoordinate2D!
+    var allLocations: [WeatherLocation] = []
+    var allWeatherViews: [WeatherView] = []
+    var allWeatherData: [CityTempData] = []
     
     
     //MARK: - View LifeCycle
@@ -31,6 +35,7 @@ class WeatherViewController: UIViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        locationAuthCheck()
 //        let weatherView = WeatherView()
 //        weatherView.frame = CGRect(x: 0, y: 0, width: weatherScrollView.bounds.width, height: weatherScrollView.bounds.height)
 //        weatherScrollView.addSubview(weatherView)
@@ -46,7 +51,8 @@ class WeatherViewController: UIViewController{
     //MARK: - Download Weather
     
     private func getWeather() {
-        
+        loadLocationsFromUserDefaults()
+        print("we have \(allLocations.count) locations")
     }
     
     private func getCurrentWeather(weatherView: WeatherView){
@@ -72,6 +78,26 @@ class WeatherViewController: UIViewController{
             weatherView.hourlyCollectionView.reloadData()
         }
     }
+    
+    //MARK: - LoadUsers from UserDefaults
+    private func loadLocationsFromUserDefaults(){
+        
+        let currentLocation = WeatherLocation(city: "", country: "", countryCode: "", isCurrentLocation: true)
+        
+        
+        if let data = userDefaults.value(forKey: "Locations") as? Data {
+            
+            allLocations = try! PropertyListDecoder().decode(Array<WeatherLocation>.self, from: data)
+            
+            allLocations.insert(currentLocation, at: 0)
+            
+            
+        } else {
+            print("No user data in UserDefaults")
+            allLocations.append(currentLocation)
+        }
+    }
+
     
     //MARK: - Location Manager
 
