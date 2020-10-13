@@ -18,7 +18,7 @@ class WeatherViewController: UIViewController{
     
     //MARK: - Vars
     var userDefaults = UserDefaults.standard
-    var weatherLocation: WeatherLocation!
+    
     var locationManager: CLLocationManager?
     var currentLocation: CLLocationCoordinate2D!
     var allLocations: [WeatherLocation] = []
@@ -82,13 +82,13 @@ class WeatherViewController: UIViewController{
     private func getCurrentWeather(weatherView: WeatherView, location: WeatherLocation){
         
         weatherView.currentWeather = CurrentWeather()
-        weatherView.currentWeather.getCurrentWeather(location: weatherLocation) { (success) in
+        weatherView.currentWeather.getCurrentWeather(location: location) { (success) in
             weatherView.refreshData()
         }
     }
     
     private func getWeeklyWeather(weatherView: WeatherView, location: WeatherLocation){
-        WeeklyWeatherForecast.downloadWeeklyWeatherForecast(location: weatherLocation) { (weatherForecasts) in
+        WeeklyWeatherForecast.downloadWeeklyWeatherForecast(location: location) { (weatherForecasts) in
             weatherView.weeklyWeatherForecastData = weatherForecasts
             
             weatherView.tableView.reloadData()
@@ -96,7 +96,7 @@ class WeatherViewController: UIViewController{
     }
     
     private func getHourlyWeather(weatherView: WeatherView, location: WeatherLocation){
-        HourlyForecast.downloadHourlyForecastWeather(location: weatherLocation) { (weatherForecasts) in
+        HourlyForecast.downloadHourlyForecastWeather(location: location) { (weatherForecasts) in
             
             weatherView.dailyWeatherForecastData = weatherForecasts
             
