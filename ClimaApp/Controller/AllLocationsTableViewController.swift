@@ -10,9 +10,16 @@ import UIKit
 
 class AllLocationsTableViewController: UITableViewController {
     
+    //MARK: - Vars
+    
+    var savedLocations: [WeatherLocation]?
+    let userDefaults = UserDefaults.standard
+    
+    
+    //MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadFromUserDefaults()
         
     }
     
@@ -31,6 +38,16 @@ class AllLocationsTableViewController: UITableViewController {
         
         return cell
     }
+    
+    //MARK: - UserDefaults
+    private func loadFromUserDefaults(){
+        if let data = userDefaults.value(forKey: "Locations") as? Data {
+            savedLocations = try? PropertyListDecoder().decode(Array<WeatherLocation>.self, from: data)
+
+        }
+        print("number: \(savedLocations?.count)")
+    }
+    
     
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
