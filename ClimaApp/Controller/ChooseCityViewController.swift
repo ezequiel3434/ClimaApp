@@ -52,6 +52,7 @@ class ChooseCityViewController: UIViewController {
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         searchController.searchBar.searchTextField.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        searchController.searchBar.searchTextField.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         searchController.searchBar.searchBarStyle = UISearchBar.Style.prominent
         searchController.searchBar.sizeToFit()
         searchController.searchBar.backgroundImage = UIImage()
@@ -88,7 +89,9 @@ class ChooseCityViewController: UIViewController {
                     
                     i += 1
                 }
+                
             }
+            
         } catch {
             print("Error reading CSV file, ", error.localizedDescription)
         }

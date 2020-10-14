@@ -128,7 +128,7 @@ class WeatherViewController: UIViewController{
             
             allLocations = try! PropertyListDecoder().decode(Array<WeatherLocation>.self, from: data)
             
-            allLocations.insert(currentLocation, at: 0)
+            allLocations.insert(currentLocation, at: 0) 
             
             
         } else {

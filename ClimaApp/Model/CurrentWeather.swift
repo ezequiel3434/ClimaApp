@@ -128,17 +128,17 @@ class CurrentWeather {
     func getCurrentWeather(location:WeatherLocation, completion: @escaping(_ success: Bool) -> Void) {
         
         var LOCATIONAPI_URL: String!
-        
+        print(location)
         if !location.isCurrentLocation {
             LOCATIONAPI_URL = String(format: "https://api.weatherbit.io/v2.0/current?city=%@,%@&key=7c1909634a1c40259418c967a63191a4", location.city, location.countryCode)
         } else {
             LOCATIONAPI_URL = CURRENTLOCATION_URL
         }
-        
-        
+        print("---------------")
+        print(LOCATIONAPI_URL)
         AF.request(LOCATIONAPI_URL).responseJSON { (response) in
             let result = response.result
-            
+            debugPrint(response)
             switch result {
             case .success(let value):
                 let json = JSON(value)
