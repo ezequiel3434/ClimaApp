@@ -91,13 +91,18 @@
                             <rect key="frame" x="0.0" y="136" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcr-Pe-RrG">
-                                    <rect key="frame" x="331" y="7" width="75" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcr-Pe-RrG">
+                                    <rect key="frame" x="364" y="2" width="42" height="40"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="75" id="NfE-DA-j1e"/>
-                                        <constraint firstAttribute="height" constant="30" id="VzB-yC-4cb"/>
+                                        <constraint firstAttribute="width" constant="42" id="NfE-DA-j1e"/>
+                                        <constraint firstAttribute="height" constant="40" id="VzB-yC-4cb"/>
                                     </constraints>
-                                    <state key="normal" title="Add"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <color key="tintColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <state key="normal" image="plus" catalog="system">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18" scale="large" weight="medium"/>
+                                    </state>
                                     <connections>
                                         <segue destination="toE-AI-XjJ" kind="show" identifier="chooseLocationSeg" id="mvh-it-dDs"/>
                                     </connections>
@@ -117,7 +122,7 @@
                                     </connections>
                                 </segmentedControl>
                             </subviews>
-                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="Zcr-Pe-RrG" firstAttribute="centerY" secondItem="cqm-Jf-7li" secondAttribute="centerY" id="7Ld-oZ-kWb"/>
                                 <constraint firstItem="Hoq-Pa-bZS" firstAttribute="leading" secondItem="cqm-Jf-7li" secondAttribute="leading" constant="8" id="QYe-5s-RbV"/>
@@ -242,4 +247,7 @@
             <point key="canvasLocation" x="3640.579710144928" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+    </resources>
 </document>

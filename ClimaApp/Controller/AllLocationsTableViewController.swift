@@ -38,6 +38,25 @@ class AllLocationsTableViewController: UITableViewController {
     
     @IBAction func tempSegmentValueChange(_ sender: UISegmentedControl) {
         print("selected: \(sender.selectedSegmentIndex)")
+        
+        updateTempFormatInUserDefaults(newValue: sender.selectedSegmentIndex)
+    }
+    
+    //MARK: - UserDefaults
+    
+    private func updateTempFormatInUserDefaults(newValue: Int){
+        shouldRefresh = true
+        userDefaults.set(newValue, forKey: "TempFormat")
+        userDefaults.synchronize()
+        
+    }
+    
+    private func loadTempFormatFromUserDefaults() {
+        if let index = userDefaults.value(forKey: "TempFormat") {
+            tempSegmentOutlet.selectedSegmentIndex = index as! Int
+        } else {
+            tempSegmentOutlet.selectedSegmentIndex = 0
+        }
     }
     
     
