@@ -35,6 +35,7 @@
 		37A892502535898800C50BC6 /* MainWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A8924F2535898800C50BC6 /* MainWeatherTableViewCell.swift */; };
 		37A8925225358CE200C50BC6 /* CityTempData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A8925125358CE200C50BC6 /* CityTempData.swift */; };
 		37A8925425359ED300C50BC6 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A8925325359ED300C50BC6 /* LocationService.swift */; };
+		37A892562536B5C600C50BC6 /* TempFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A892552536B5C600C50BC6 /* TempFormat.swift */; };
 		70C246E169A29DE4CEE2F2EF /* Pods_ClimaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 361D0FBA21F9B06ACF26FDCB /* Pods_ClimaApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		37A8924F2535898800C50BC6 /* MainWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWeatherTableViewCell.swift; sourceTree = "<group>"; };
 		37A8925125358CE200C50BC6 /* CityTempData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTempData.swift; sourceTree = "<group>"; };
 		37A8925325359ED300C50BC6 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		37A892552536B5C600C50BC6 /* TempFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempFormat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 				37A892452534EFE400C50BC6 /* WeatherLocation.swift */,
 				37A8925125358CE200C50BC6 /* CityTempData.swift */,
 				37A8925325359ED300C50BC6 /* LocationService.swift */,
+				37A892552536B5C600C50BC6 /* TempFormat.swift */,
 			);
 			path = ModelHelpers;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				37A8922D2532F0BE00C50BC6 /* WeatherView.swift in Sources */,
 				37A892462534EFE400C50BC6 /* WeatherLocation.swift in Sources */,
 				37A892232531185000C50BC6 /* CurrentWeather.swift in Sources */,
+				37A892562536B5C600C50BC6 /* TempFormat.swift in Sources */,
 				37A8925225358CE200C50BC6 /* CityTempData.swift in Sources */,
 				37A891FE252F5E3B00C50BC6 /* SceneDelegate.swift in Sources */,
 				37A892482534F56A00C50BC6 /* APIURLS.swift in Sources */,

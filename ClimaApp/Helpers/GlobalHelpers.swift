@@ -19,3 +19,31 @@ func currentDateFromUnix(unixDate: Double?) -> Date? {
 func getWeatherIconFor(_ type: String) -> UIImage? {
     return UIImage(named: type)
 }
+
+func fahrenheitFrom(celcius: Double) -> Double {
+    return (celcius * 9/5) + 32
+}
+
+func getTempBasedOnSettings(celcius: Double) -> Double {
+    
+    let format = returnTempFormatFromUserDefault()
+    
+    if format == TempFormat.celsius {
+        return celcius
+    } else {
+        return fahrenheitFrom(celcius: celcius)
+    }
+}
+
+func returnTempFormatFromUserDefault() -> String {
+    if let tempFormat = UserDefaults.standard.value(forKey: "TempFormat") {
+        if tempFormat as! Int == 0 {
+            return TempFormat.celsius
+        } else {
+            return TempFormat.fahrenheit
+        }
+        
+    } else {
+        return TempFormat.celsius
+    }
+}
