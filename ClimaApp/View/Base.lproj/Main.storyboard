@@ -102,10 +102,26 @@
                                         <segue destination="toE-AI-XjJ" kind="show" identifier="chooseLocationSeg" id="mvh-it-dDs"/>
                                     </connections>
                                 </button>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Hoq-Pa-bZS">
+                                    <rect key="frame" x="8" y="6.5" width="135" height="32"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="135" id="LwY-b4-ew2"/>
+                                    </constraints>
+                                    <segments>
+                                        <segment title="°C"/>
+                                        <segment title="°F"/>
+                                    </segments>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <connections>
+                                        <action selector="tempSegmentValueChange:" destination="LEV-yZ-J84" eventType="valueChanged" id="Vtr-SE-b8z"/>
+                                    </connections>
+                                </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="Zcr-Pe-RrG" firstAttribute="centerY" secondItem="cqm-Jf-7li" secondAttribute="centerY" id="7Ld-oZ-kWb"/>
+                                <constraint firstItem="Hoq-Pa-bZS" firstAttribute="leading" secondItem="cqm-Jf-7li" secondAttribute="leading" constant="8" id="QYe-5s-RbV"/>
+                                <constraint firstItem="Hoq-Pa-bZS" firstAttribute="centerY" secondItem="cqm-Jf-7li" secondAttribute="centerY" id="owy-fX-w95"/>
                                 <constraint firstAttribute="trailing" secondItem="Zcr-Pe-RrG" secondAttribute="trailing" constant="8" id="tZW-lj-8Mb"/>
                             </constraints>
                         </view>
@@ -154,6 +170,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Sbn-Sd-l11"/>
+                    <connections>
+                        <outlet property="footerView" destination="cqm-Jf-7li" id="BK2-8w-cVs"/>
+                        <outlet property="tempSegmentOutlet" destination="Hoq-Pa-bZS" id="cWZ-3d-yph"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qz7-Zt-r0u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

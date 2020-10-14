@@ -13,6 +13,12 @@ protocol AllLocationsTableViewControllerDelegate {
 
 class AllLocationsTableViewController: UITableViewController {
     
+    //MARK: - IBOutlets
+    @IBOutlet weak var tempSegmentOutlet: UISegmentedControl!
+    @IBOutlet weak var footerView: UIView!
+    
+    
+    
     //MARK: - Vars
     
     var savedLocations: [WeatherLocation]?
@@ -27,6 +33,13 @@ class AllLocationsTableViewController: UITableViewController {
         loadFromUserDefaults()
         
     }
+    
+    //MARK: - IBActions
+    
+    @IBAction func tempSegmentValueChange(_ sender: UISegmentedControl) {
+        print("selected: \(sender.selectedSegmentIndex)")
+    }
+    
     
     // MARK: - Table view data source
     
