@@ -137,10 +137,10 @@
 		37A89210252F93D500C50BC6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				37A8922A2532F07F00C50BC6 /* WeatherView */,
 				37A8923D25338C1400C50BC6 /* WeatherTableViewCell */,
 				37A89236253385D900C50BC6 /* InfoCVCell */,
 				37A8923125337BC700C50BC6 /* ForecastCVCell */,
-				37A8922A2532F07F00C50BC6 /* WeatherView */,
 				37A8924F2535898800C50BC6 /* MainWeatherTableViewCell.swift */,
 				37A89206252F5E3D00C50BC6 /* LaunchScreen.storyboard */,
 				37A89201252F5E3B00C50BC6 /* Main.storyboard */,

@@ -39,6 +39,7 @@ class WeatherViewController: UIViewController{
         if shouldRefresh {
             allLocations = []
             allWeatherViews = []
+            removeViewsFromScrollView()
             locationAuthCheck()
         }
         
@@ -57,6 +58,15 @@ class WeatherViewController: UIViewController{
         createWeatherViews()
         addWeatherToScrollView()
         setPageControlPageNumber()
+       
+        print("we have \(weatherScrollView.subviews.count)")
+
+    }
+    
+    private func removeViewsFromScrollView(){
+        for view in weatherScrollView.subviews {
+            view.removeFromSuperview()
+        }
     }
     
     private func createWeatherViews(){

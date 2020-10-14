@@ -31,6 +31,7 @@ class WeatherTableViewCell: UITableViewCell {
        
         dayOfTheWeekLabel.text = forecast.date.dayOfTheWeek()
         weatherIconImageView.image = getWeatherIconFor(forecast.weatherIcon)
-        tempLabel.text = "\(forecast.temp)"
+        tempLabel.text = String(format: "%.0f%@", forecast.temp, returnTempFormatFromUserDefault())
+       
     }
 }
