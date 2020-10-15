@@ -137,6 +137,8 @@ class CurrentWeather {
 //        print(location.city.replacingOccurrences(of: " ", with: "+").toNoSmartQuotes())
         
         
+        
+        
         AF.request(LOCATIONAPI_URL).responseJSON { (response) in
             let result = response.result
             

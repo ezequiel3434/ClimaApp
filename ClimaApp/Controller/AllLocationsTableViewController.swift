@@ -42,7 +42,7 @@ class AllLocationsTableViewController: UITableViewController {
         loadLocationsFromUserDefaults()
         print("hola", savedLocations?.count ?? 0)
         if savedLocations != nil {
-            print(savedLocations)
+//            print(savedLocations)
             if savedLocations!.count > 4 {
                 addButton.isEnabled = false
             } else {
