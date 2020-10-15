@@ -47,3 +47,5 @@ func returnTempFormatFromUserDefault() -> String {
         return TempFormat.celsius
     }
 }
+
+

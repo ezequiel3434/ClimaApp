@@ -33,3 +33,12 @@ extension Date {
     }
     
 }
+
+
+extension String {
+    //MARK: - remove accents
+       func toNoSmartQuotes() -> String {
+           let userInput: String = self
+           return userInput.folding(options: .diacriticInsensitive, locale: .current)
+       }
+}

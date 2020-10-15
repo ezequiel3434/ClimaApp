@@ -128,13 +128,13 @@ class CurrentWeather {
     func getCurrentWeather(location:WeatherLocation, completion: @escaping(_ success: Bool) -> Void) {
         
         var LOCATIONAPI_URL: String!
-        print("AUQI: ",location.city)
+        
         if !location.isCurrentLocation {
-            LOCATIONAPI_URL = String(format: "https://api.weatherbit.io/v2.0/current?city=%@,%@&key=7c1909634a1c40259418c967a63191a4", location.city.replacingOccurrences(of: " ", with: ""), location.countryCode)
+            LOCATIONAPI_URL = String(format: "https://api.weatherbit.io/v2.0/current?city=%@,%@&key=7c1909634a1c40259418c967a63191a4", location.city.replacingOccurrences(of: " ", with: "+").toNoSmartQuotes(), location.countryCode)
         } else {
             LOCATIONAPI_URL = CURRENTLOCATION_URL
         }
-        
+//        print(location.city.replacingOccurrences(of: " ", with: "+").toNoSmartQuotes())
         
         
         AF.request(LOCATIONAPI_URL).responseJSON { (response) in

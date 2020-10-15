@@ -16,6 +16,7 @@ class AllLocationsTableViewController: UITableViewController {
     //MARK: - IBOutlets
     @IBOutlet weak var tempSegmentOutlet: UISegmentedControl!
     @IBOutlet weak var footerView: UIView!
+    @IBOutlet weak var addButton: UIButton!
     
     
     
@@ -36,10 +37,25 @@ class AllLocationsTableViewController: UITableViewController {
         loadTempFormatFromUserDefaults()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadLocationsFromUserDefaults()
+        print("hola", savedLocations?.count ?? 0)
+        if savedLocations != nil {
+            print(savedLocations)
+            if savedLocations!.count > 4 {
+                addButton.isEnabled = false
+            } else {
+                addButton.isEnabled = true
+            }
+        }
+
+    }
+
     //MARK: - IBActions
     
     @IBAction func tempSegmentValueChange(_ sender: UISegmentedControl) {
-        print("selected: \(sender.selectedSegmentIndex)")
+        
         
         updateTempFormatInUserDefaults(newValue: sender.selectedSegmentIndex)
     }
@@ -83,7 +99,11 @@ class AllLocationsTableViewController: UITableViewController {
             weatherData?.remove(at: indexPath.row)
             
             removeLocationFromSavedLocation(location: locationToDelete!.city)
-            
+            if savedLocations!.count > 4 {
+                addButton.isEnabled = false
+            } else {
+                addButton.isEnabled = true
+            }
             tableView.reloadData()
         }
     }

@@ -59,7 +59,7 @@ class WeatherViewController: UIViewController{
         addWeatherToScrollView()
         setPageControlPageNumber()
        
-        print("we have \(weatherScrollView.subviews.count)")
+//        print("we have \(weatherScrollView.subviews.count)")
 
     }
     

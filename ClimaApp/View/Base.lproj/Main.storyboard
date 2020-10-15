@@ -176,6 +176,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Sbn-Sd-l11"/>
                     <connections>
+                        <outlet property="addButton" destination="Zcr-Pe-RrG" id="Xdg-Lj-ICo"/>
                         <outlet property="footerView" destination="cqm-Jf-7li" id="BK2-8w-cVs"/>
                         <outlet property="tempSegmentOutlet" destination="Hoq-Pa-bZS" id="cWZ-3d-yph"/>
                     </connections>
