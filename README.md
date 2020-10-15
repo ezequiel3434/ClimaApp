@@ -6,6 +6,7 @@ A swift project to create a weather application in Swift 5.
 - CocoaPods
 - SwiftyJson
 - Alamofire
+- UserDefaults
 - Rest API (weatherbit.io)
 - Parse CSV files
 - Current weather for your current  location
@@ -13,6 +14,7 @@ A swift project to create a weather application in Swift 5.
 - Weekly (7 days) weather forecast for your current location
 - Current weather for Any City of your choice (max 5)
 - Custom views using storyboard and XIB files
+- Change temperature units (ºC or ºF)
 
 ## Screenshots
 
