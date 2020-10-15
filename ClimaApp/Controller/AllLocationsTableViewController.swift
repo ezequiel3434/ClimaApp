@@ -40,7 +40,7 @@ class AllLocationsTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         loadLocationsFromUserDefaults()
-        print("hola", savedLocations?.count ?? 0)
+        
         if savedLocations != nil {
 //            print(savedLocations)
             if savedLocations!.count > 4 {

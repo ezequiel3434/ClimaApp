@@ -190,6 +190,7 @@ class WeatherViewController: UIViewController{
         allWeatherData = []
         
         for weatherView in allWeatherViews {
+            
             allWeatherData.append(CityTempData(city: weatherView.currentWeather.city, temp: weatherView.currentWeather.currentTemp))
         }
     }

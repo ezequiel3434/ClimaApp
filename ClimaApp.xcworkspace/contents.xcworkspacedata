@@ -7,4 +7,35 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
+   <Group
+      location = "container:"
+      name = "Images">
+      <FileRef
+         location = "group:/Users/ezequiel/Documents/DesafioCablevisionIOS/ClimaApp/1.png">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/ezequiel/Documents/DesafioCablevisionIOS/ClimaApp/2.png">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/ezequiel/Documents/DesafioCablevisionIOS/ClimaApp/3.png">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/ezequiel/Documents/DesafioCablevisionIOS/ClimaApp/4.png">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/ezequiel/Documents/DesafioCablevisionIOS/ClimaApp/8.png">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/ezequiel/Documents/DesafioCablevisionIOS/ClimaApp/9.png">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/ezequiel/Documents/DesafioCablevisionIOS/ClimaApp/5.png">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/ezequiel/Documents/DesafioCablevisionIOS/ClimaApp/6.png">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/ezequiel/Documents/DesafioCablevisionIOS/ClimaApp/7.png">
+      </FileRef>
+   </Group>
 </Workspace>
